@@ -17,6 +17,7 @@
             <legend>Nova Tarefa</legend>
             <label for="nome">Nome</label>
             <input type="text" name="nome" id="nome" autofocus required>
+            <input type="submit" value="Cadastrar">
         </fieldset>
 
         <h2>Tarefas</h2>
@@ -27,10 +28,16 @@
                 </tr>
             </thead>
             <tbody>
-                <?php foreach($tarefas as $tarefa) { ?> 
+                <?php 
+                    if($tarefas) {
+                    foreach($tarefas as $tarefa) { ?> 
                     <tr>
                         <td><?=$tarefa?></td>
                     </tr>
+                    <?php } } else { ?>
+                    <tr>
+                        <td >Não existem tarefas cadastrados.</td>
+                    </tr>    
                 <?php } ?>
             </tbody>
         </table>

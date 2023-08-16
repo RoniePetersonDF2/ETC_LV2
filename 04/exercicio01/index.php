@@ -1,6 +1,27 @@
 <?php
-    $tarefas = [];    
+    # inicia o trabalho com sessão
+    session_start();
 
+    # cria uma variavel com conteúdo array vazio.
+    $tarefas = [];    
+    // session_destroy();
+
+    # verifica se existe uma sessao com o nome tarefas.
+    # se existir, atribui o valor armazenado a variável tarefas.
+    if (isset($_SESSION['tarefas']))
+    {
+        $tarefas = $_SESSION['tarefas'];
+    }
+
+    # verifica se estamos passando os dados enviados pelo formulario.
+    # se sim, adiciona o valor a variável tarefas. Modifica o valor da variavel de sessão.
+    # redireciona a página para index.php
+    if (isset($_GET['nome']) && isset($_GET['botaoEnviar']))
+    {
+        $tarefas[] =  $_GET['nome'];
+        $_SESSION['tarefas'] = $tarefas;
+        header('location: /');
+    }
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -17,7 +38,7 @@
             <legend>Nova Tarefa</legend>
             <label for="nome">Nome</label>
             <input type="text" name="nome" id="nome" autofocus required>
-            <input type="submit" value="Cadastrar">
+            <input type="submit" value="Cadastrar" name="botaoEnviar">
         </fieldset>
 
         <h2>Tarefas</h2>

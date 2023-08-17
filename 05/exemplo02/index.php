@@ -1,10 +1,10 @@
 <?php
 
-    require_once "usuarios.php";
+    require_once "conta.php";
 
-    $usuario = new Usuarios();
-    $usuario->nome = "João Pedro";
+    $conta01 = new Conta();
+    $conta01->saldo = 1000.0;
 
-    $usuario->imprimeNome();
+    echo "Seu saldo é: {$conta01->getSaldo()}";
 
    

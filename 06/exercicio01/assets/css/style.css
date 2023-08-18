@@ -1,0 +1,36 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    background-color: #34495e;
+    
+}
+.principal {
+    height: 650px;
+    width: 60vw;
+    margin: 130px auto;
+}
+
+.principal h1, h2 {
+    text-align: center;
+    margin: 20px 0;
+    color: #fff;
+    font-weight: 700;
+}
+
+
+.secao__opcao__botao a {
+    display: inline-block;
+    margin: 15px;
+    padding: 35px;
+    width: 95%;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.5rem;
+    color: #fff;
+    background-color: #EF476F;
+}

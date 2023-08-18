@@ -1,6 +1,6 @@
 <?php
 
-class Usuarios 
+class Usuarios
 {
     public $nome;
 }

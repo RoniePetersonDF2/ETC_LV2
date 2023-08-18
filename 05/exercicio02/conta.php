@@ -10,4 +10,10 @@
         {
             return $this->saldo;
         }
+
+        public function exibirSaldo()
+        {
+            $dataAtual = date('d/m/Y H:m');
+            echo "Seu saldo hoje, {$dataAtual}: {$this->getSaldo()}<br>";
+        }
     }

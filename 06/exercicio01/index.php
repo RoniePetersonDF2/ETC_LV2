@@ -11,7 +11,10 @@
 </head>
 <body>
     <main class="principal">
-        <h1>Banco ETC</h1>
+        <figure>
+            <img class="logo" src="assets/image/logo-etc.png" alt="Imagem logo da ETC">
+        </figure>
+        <h1><a href="/">Banco ETC</a></h1>
 
         <h2>Escolha uma das opções</h2>
 
@@ -20,6 +23,19 @@
             <a href="#">Verificar Saldo</a>
             <a href="#">Sacar</a>
             <a href="#">Depositar</a>
+        </section>
+
+        <section class="secao__informacao__cliente">
+            
+            <h2>Informações sobre Conta</h2>
+
+            <hr>
+             
+            <div>
+                <p>Cliente</p>
+                <p>Número</p>
+                <p>Saldo</p>
+            </div>
         </section>
     </main>
 </body>

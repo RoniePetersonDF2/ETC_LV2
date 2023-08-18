@@ -1,7 +1,7 @@
 <?php
-    require_once "usuario.php";
+    require_once "conta.php";
 
-    $usuario01 = new Usuario();
+    $conta01 = new Conta();
 
     echo '<pre>';
-    var_dump($usuario01);
+    var_dump($conta01);

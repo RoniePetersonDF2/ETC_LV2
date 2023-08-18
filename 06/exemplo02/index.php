@@ -1,11 +1,9 @@
 <?php
-    require_once "usuario.php";
+    require_once "conta.php";
 
-    $usuario01 = new Usuario();
+    $conta01 = new Conta();
 
-    $usuario01->setcpf('123.456.789-00');
-    $usuario01->setNome('Usuário 01');
-    $usuario01->setEmail('usuario@email.com');
-    $usuario01->setPassword('123');
-
-    echo $usuario01->toString();
+    $conta01->setNumero('123.456-00');
+    $conta01->setCliente('Fulano de Tal');
+    $conta01->setSaldo(432.56);
+    echo $conta01->toString();

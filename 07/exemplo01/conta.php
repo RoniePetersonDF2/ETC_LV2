@@ -68,8 +68,8 @@
         public function toString()
         {
             $saldo = number_format($this->saldo, 2, ',', '.');
-            return "Cliente: {$this->getCliente()},
-                    Numero da Conta: {$this->getNumero()}, 
+            return "Cliente: {$this->cliente},
+                    Numero da Conta: {$this->numero}, 
                     Saldo: {$saldo}.";
         }
     }

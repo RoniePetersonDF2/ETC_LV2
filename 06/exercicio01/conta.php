@@ -57,8 +57,8 @@
 
         public function toString()
         {
-            return "Cliente: {$this->getCliente()},
-                    Numero da Conta: {$this->getNumero()}, 
-                    Saldo: {$this->getSaldo()}.";
+            return "Cliente: {$this->cliente},
+                    Numero da Conta: {$this->numero}, 
+                    Saldo: {$this->saldo}.";
         }
     }

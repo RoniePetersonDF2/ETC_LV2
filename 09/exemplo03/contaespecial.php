@@ -1,6 +1,6 @@
 <?php
 
-class ContaEspecial extends Conta
+final class ContaEspecial extends Conta
 {
     private $limite = 100;
 

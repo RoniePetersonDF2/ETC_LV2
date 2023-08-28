@@ -18,11 +18,6 @@ abstract class Conta
         return $this->saldo;
     }
 
-    public function depositar($valor)
-    {
-        $this->saldo +=$valor;
-    }
-
     public function __toString()
     {
         $saldo = number_format($this->saldo, 2, ',', '.');

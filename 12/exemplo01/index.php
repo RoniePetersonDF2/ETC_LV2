@@ -7,7 +7,7 @@
     $dbh = Conexao::getConexao();
 
     # cria uma instrução SQL para inserir dados na tabela perfil.
-    $query = "INSERT INTO perfis (nome) 
+    $query = "INSERT INTO escolabd.perfis (nome) 
                 VALUES ('ADMINISTRADOR');"; 
     # manda excecutar a instrução query na tabela do banco de dados (adicionar registro).
     # se tudo estiver certo, retorna um valor maior que zero (true).

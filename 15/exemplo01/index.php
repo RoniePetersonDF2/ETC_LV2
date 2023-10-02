@@ -19,4 +19,3 @@
     } else {
         echo "Não existe usuário cadastrado com id = $id";
     }
-

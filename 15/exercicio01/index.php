@@ -1,3 +1,15 @@
+<?php
+    include_once 'src/conexao.php';
+
+    $dbh = Conexao::getConexao();
+
+    $query = "SELECT * FROM escolabd.usuarios;";
+
+    $stmt =$dbh->query($query);
+
+    $usuarios = $stmt->fetchAll();
+    $quantidadeUsuarios = (int) $stmt->rowCount();
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -22,7 +34,18 @@
                     <th>Status</th>
                 </tr>
                 <tr>
-                    <td colspan="4">Não existem usuários cadastrados.</td>
+                    <?php if ($quantidadeUsuarios >0) :?>
+                        <?php foreach($usuarios as $usuario): ?>
+                            <tr>
+                                <td><?= $usuario['id']?></td>
+                                <td><?= $usuario['nome']?></td>
+                                <td><?= $usuario['email']?></td>
+                                <td><?= ($usuario['status'] == "1" ? "Ativo" : "Inativo")?></td>
+                            </tr>
+                        <?php endforeach ?>
+                    <?php else: ?>
+                        <td colspan="4">Não existem usuários cadastrados.</td>
+                    <?php endif ?>
                 </tr>
             </table>
         </section>

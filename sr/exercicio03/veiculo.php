@@ -7,8 +7,9 @@
         public $combustivel;
         public $marca;
         public $modelo;
-        private $velocidade = 0;
-        
+        private $velocidade;
+        private $estado;
+
         # local para colocar métodos.
         public function __construct($cor, $combustivel, $marca, $modelo)
         {
@@ -18,6 +19,7 @@
             $this->combustivel = $combustivel;
             $this->marca = $marca;
             $this->modelo = $modelo;
+            $this->estado = "DESLIGADO";
         }
 
         public function acelerar()
@@ -30,15 +32,20 @@
             $this->velocidade -= 10;
         }
 
+        public function ligar()
+        {
+            $this->estado = "LIGADO";
+        }
+
         public function getVelocidade() 
         {
-            echo "<p>Sua velocidade atual é: <b>{$this->velocidade} Km</b></p>";
+            return $this->velocidade;
         }
 
         public function __toString()
         {
-            return "<p>Meu carro é um {$this->marca} - {$this->modelo}.</p> 
-            <p>A cor dele é {$this->cor} e o combustível é {$this->combustivel}.</p>";
+            return "Meu carro é um {$this->marca} - {$this->modelo}. 
+                A cor dele é {$this->cor} e o combustível é {$this->combustivel}.";
         }
     }
 

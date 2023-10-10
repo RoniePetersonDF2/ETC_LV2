@@ -28,10 +28,15 @@
     
     # executa a instrução contida em stmt e se tudo der certo retorna uma valor maior que zero.
     $result= $stmt->execute();
-    $dbh = null;
     if ($result)
     {
         header('location: index.php');
+        exit;
     } else {
-        header('location: index.php?msg=Não foi possível cadastrar o usuário com ID: {$id}');
+        echo '<p>Não foi fossível inserir Usuário!</p>';
+        # método da classe conexao que informa o error ocorrido na execução da query.
+        $error = $dbh->errorInfo();
+        print_r($error);
     }
+    $dbh = null;
+    echo "<p><a href='index.php'>Voltar</a></p>";

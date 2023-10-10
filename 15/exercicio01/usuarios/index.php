@@ -21,23 +21,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercicio 01</title>
+    <title>Exercicio 01 - Usuários</title>
     <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
-    <main>
+    <header>
+        <h1>CRUD - Básico</h1>
+        <p>Exercício introdutório exemplificando o crud nas tabelas usuários e perfil. </p>
+    </header>
+    <nav>
         <a href="../index.php">Home</a>
+        <a href="usuarios/index.php">Usuários</a>
+        <a href="#">Perfil</a>
+    </nav>
+
+    <main>
         <h1>Usuários</h1>
-        <header>
-            <nav>
-                <a href="new.php">Novo</a>
-            </nav>
-        </header>
+        <section class="section__btn">
+            <a class="btn" href="#">Novo</a>
+        </section>
 
         <hr>
 
         <section>
-            <table border="1" width="100%">
+            <table >
                 <thead>
                     <tr>
                         <th>#</th>
@@ -62,7 +69,7 @@
                             <td><?= $status;?></td>
                         </tr>
                         <?php endwhile; ?>
-                    <?php endif ?>
+                    <?php endif; $dbh = null; ?>
                 </tbody>
             </table>
         </section>

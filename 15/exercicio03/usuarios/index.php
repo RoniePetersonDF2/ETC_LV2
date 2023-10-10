@@ -21,7 +21,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercicio 02 - Usuários</title>
+    <title>Exercicio 03 - Usuários</title>
     <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
@@ -51,6 +51,7 @@
                         <th>Nome</th>
                         <th>E-mail</th>
                         <th>Status</th>
+                        <th>Ação</th>
                     </tr>
                 </thead>
 
@@ -67,6 +68,9 @@
                             <td><?= $row['nome'];?></td>
                             <td><?= $row['email'];?></td>
                             <td><?= $status;?></td>
+                            <td class="td__operacao">
+                                <a class="btnexcluir" href="delete.php?id=<?=$row['id'];?>" onclick="return confirm('Deseja confirmar a operação?');">Excluir</a>
+                            </td>
                         </tr>
                         <?php endwhile; ?>
                     <?php endif; $dbh = null; ?>

@@ -6,6 +6,14 @@
 
     # criando instancia da classe Veiculo e armazenando na variável $corsa.
     # quando usamos parâmetros em métodos construtores, é o obrigatório passar o valor. 
-    $corsa = new Veiculo("Preto", "Alcool", "Chevrolet", "Corsa 1.0");
-    # acessando ou lendo o valor do atributo cor.
-    echo "A cor do meu Corsa é: {$corsa->cor}"; 
+    $omega = new Veiculo("Preto", "Flex", "Chevrolet", "Ômega 2.0");
+    # acessando o método toString.
+    echo $omega; 
+
+    $omega->ligar();
+    $omega->acelerar();
+    $omega->acelerar();
+    $omega->acelerar();
+    $omega->acelerar();
+    $omega->getVelocidade();
+    

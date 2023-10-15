@@ -35,6 +35,6 @@
     if ($result) {
         header('location: index.php?msg=Usuário adicionado com sucesso!');
     } else {
-        header('location: index.php?msgNão foi possível adicionar o usuário!');
+        header('location: index.php?error=Não foi possível adicionar o usuário!');
     }
    

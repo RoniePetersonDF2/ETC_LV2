@@ -14,5 +14,5 @@ $result = $dao->update($id, $nome);
 if ($result) {
     header('location: index.php?msg=Perfil atualizado com sucesso!');
 } else {
-    header('location: index.php?msgNão foi possível atualizar o perfil!');
+    header('location: index.php?error=Não foi possível atualizar o perfil!');
 }

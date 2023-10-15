@@ -31,5 +31,5 @@
     if ($result) {
         header('location: index.php?msg=Usuário atualizado com sucesso!');
     } else {
-        header('location: index.php?msgNão foi possível atualizar o usuário!');
+        header('location: index.php?error=Não foi possível atualizar o usuário!');
     }

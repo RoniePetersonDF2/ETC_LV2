@@ -9,7 +9,7 @@ $dao = new PerfilDAO();
 $perfil = $dao->getById($id);
 
 if (!$perfil) {
-    header('location: index.php?msg=Perfil não encontrado para o ID: {$id}');
+    header('location: index.php?error=Perfil não encontrado!');
     exit;
 }
 ?>

@@ -34,6 +34,12 @@ $quantidadeRegistros = count($perfis);
             <a class="btn" href="add.php">Novo</a>
         </section>
 
+        <?php if (isset($_GET['msg']) || isset($_GET['error'])) : ?>
+            <div class="<?= (isset($_GET['msg']) ? 'msg__success' : 'msg__error') ?>">
+                <p><?= $_GET['msg'] ?? $_GET['error'] ?></p>
+            </div>
+        <?php endif; ?>
+
         <hr>
 
         <section>

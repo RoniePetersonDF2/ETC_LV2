@@ -1,29 +1,31 @@
 <?php
-    require_once '../src/conexao.php';
+require_once '../src/conexao.php';
 
-    # solicita a conexão com o banco de dados e guarda na váriavel dbh.
-    $dbh = Conexao::getConexao();
+# solicita a conexão com o banco de dados e guarda na váriavel dbh.
+$dbh = Conexao::getConexao();
 
-    # cria uma instrução SQL para selecionar todos os dados na tabela usuarios.
-    $query = "SELECT * FROM escolabd.usuarios;"; 
+# cria uma instrução SQL para selecionar todos os dados na tabela usuarios.
+$query = "SELECT * FROM escolabd.usuarios;";
 
-    # prepara a execução da query e retorna para uma variável chamada stmt.
-    $stmt = $dbh->query($query);
+# prepara a execução da query e retorna para uma variável chamada stmt.
+$stmt = $dbh->query($query);
 
-    # devolve a quantidade de linhas retornada pela consulta a tabela.
-    $quantidadeRegistros = $stmt->rowCount();
-    # busca todos os dados da tabela usuário.
-    $usuarios = $stmt->fetchAll();
-    $dbh = null;
+# devolve a quantidade de linhas retornada pela consulta a tabela.
+$quantidadeRegistros = $stmt->rowCount();
+# busca todos os dados da tabela usuário.
+$usuarios = $stmt->fetchAll();
+$dbh = null;
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exercicio - Usuários</title>
     <link rel="stylesheet" href="../assets/css/style.css">
 </head>
+
 <body>
     <header>
         <h1>CRUD - Básico</h1>
@@ -41,10 +43,16 @@
             <a class="btn" href="add.php">Novo</a>
         </section>
 
+        <?php if (isset($_GET['msg']) || isset($_GET['error'])) : ?>
+            <div class="<?= (isset($_GET['msg']) ? 'msg__success' : 'msg__error') ?>">
+                <p><?= $_GET['msg'] ?? $_GET['error'] ?></p>
+            </div>
+        <?php endif; ?>
+
         <hr>
 
         <section>
-            <table >
+            <table>
                 <thead>
                     <tr>
                         <th>#</th>
@@ -56,23 +64,23 @@
                 </thead>
 
                 <tbody>
-                    <?php if ($quantidadeRegistros == "0"): ?>
+                    <?php if ($quantidadeRegistros == "0") : ?>
                         <tr>
                             <td colspan="4">Não existem usuários cadastrados.</td>
                         </tr>
-                    <?php else: ?>
-                        <?php foreach($usuarios as $usuario): ?>
-                        <tr>
-                            <?php $status =  $usuario['status'] =="1"? "ATIVO" : "INATIVO"; ?>
-                            <td><?php echo $usuario['id'];?></td>
-                            <td><?= $usuario['nome'];?></td>
-                            <td><?= $usuario['email'];?></td>
-                            <td><?= $status;?></td>
-                            <td class="td__operacao">
-                                <a class="btnalterar" href="show.php?id=<?=$usuario['id'];?>">Alterar</a>
-                                <a class="btnexcluir" href="delete.php?id=<?=$usuario['id'];?>" onclick="return confirm('Deseja confirmar a operação?');">Excluir</a>
-                            </td>
-                        </tr>
+                    <?php else : ?>
+                        <?php foreach ($usuarios as $usuario) : ?>
+                            <tr>
+                                <?php $status =  $usuario['status'] == "1" ? "ATIVO" : "INATIVO"; ?>
+                                <td><?php echo $usuario['id']; ?></td>
+                                <td><?= $usuario['nome']; ?></td>
+                                <td><?= $usuario['email']; ?></td>
+                                <td><?= $status; ?></td>
+                                <td class="td__operacao">
+                                    <a class="btnalterar" href="show.php?id=<?= $usuario['id']; ?>">Alterar</a>
+                                    <a class="btnexcluir" href="delete.php?id=<?= $usuario['id']; ?>" onclick="return confirm('Deseja confirmar a operação?');">Excluir</a>
+                                </td>
+                            </tr>
                         <?php endforeach; ?>
                     <?php endif; ?>
                 </tbody>
@@ -80,4 +88,5 @@
         </section>
     </main>
 </body>
+
 </html>

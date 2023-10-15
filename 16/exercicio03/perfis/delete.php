@@ -1,5 +1,5 @@
 <?php
-include_once '../src/dao/perfildao.php';
+include_once __DIR__. '/../src/dao/perfildao.php';
 
 # cria a variavel $id com valor igual a 1. 
 $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT) ?? 0;

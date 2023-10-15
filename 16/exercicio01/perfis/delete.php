@@ -17,5 +17,5 @@
     if ($stmt->rowCount() > 0) {
         header('location: index.php?msg=Perfil excluído com sucesso!');
     } else {
-        header('location: index.php?msgNão foi possível excluir o perfil!');
+        header('location: index.php?error=Não foi possível excluir o perfil!');
     }

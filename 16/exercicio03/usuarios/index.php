@@ -12,7 +12,7 @@ $quantidadeRegistros = count($usuarios);
 <main>
     <h1>Usuários</h1>
     <section class="section__btn">
-        <a class="btn" href="add.php">Novo</a>
+        <a class="btn" href="create.php">Novo</a>
     </section>
 
     <?php if (isset($_GET['msg']) || isset($_GET['error'])) : ?>
@@ -49,7 +49,7 @@ $quantidadeRegistros = count($usuarios);
                             <td><?= htmlspecialchars($usuario['email']); ?></td>
                             <td><?= htmlspecialchars($status); ?></td>
                             <td class="td__operacao">
-                                <a class="btnalterar" href="show.php?id=<?= $usuario['id']; ?>">Alterar</a>
+                                <a class="btnalterar" href="edit.php?id=<?= $usuario['id']; ?>">Alterar</a>
                                 <a class="btnexcluir" href="delete.php?id=<?= $usuario['id']; ?>" onclick="return confirm('Deseja confirmar a operação?');">Excluir</a>
                             </td>
                         </tr>

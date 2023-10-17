@@ -21,7 +21,7 @@
     <main>
 
         <h1>Novo Usuário</h1>
-        <form action="new.php" method="post">
+        <form action="save.php" method="post">
             <label>E-mail</label><br>
             <input type="email" name="email" placeholder="Informe seu e-mail." size="80" required autofocus><br>
             <label>Nome</label><br>

@@ -7,17 +7,17 @@
     $id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
     
     # cria o comando select filtrado pelo campo id e valor = $id
-    $query = "SELECT * FROM escolabd.perfis WHERE id = :id;";
+    $query = "SELECT * FROM escolabd.usuarios WHERE id = :id;";
 
     $stmt = $dbh->prepare($query);
     $stmt->bindParam(':id', $id);
     $stmt->execute();
 
-    $perfil = $stmt->fetch(PDO::FETCH_BOTH);
+    $usuario = $stmt->fetch(PDO::FETCH_BOTH);
     $dbh = null;
-    if (!$perfil) 
+    if (!$usuario) 
     {
-        header('location: index.php?msg=Perfil não encontrado para o ID: {$id}');
+        header('location: index.php?error=Usuário não encontrado!');
         exit;
     }
 ?>
@@ -27,7 +27,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercicio - Perfil</title>
+    <title>Exercicio - Usuários</title>
     <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 
@@ -37,15 +37,22 @@
         <p>Exercício introdutório exemplificando o crud nas tabelas usuários e perfil. </p>
     </header>
     <nav>
-        <a href="#">Home</a>
-        <a href="../usuario/index.php">Usuários</a>
-        <a href="index.php">Perfil</a>
+        <a href="../index.php">Home</a>
+        <a href="index.php">Usuários</a>
+        <a href="../perfis/index.php">Perfil</a>
     </nav>
     <main>
 
-        <h1>Atualizar Perfil</h1>
+        <h1>Novo Usuário</h1>
         <form action="update.php" method="post">
-            <input type="hidden" name="id" value="<?=$perfil['id']?>">
+            <input type="hidden" name="id" value="<?=$usuario['id']?>">
+            <label>E-mail</label><br>
+            <input 
+                    type="email" 
+                    name="email" 
+                    placeholder="Informe seu e-mail." 
+                    size="80" required autofocus
+                    value="<?=$usuario['email']?>" ><br>
             <label>Nome</label><br>
             <input 
                 type="text" 
@@ -53,8 +60,7 @@
                 placeholder="Informe seu nome." 
                 size="80" 
                 required
-                value="<?=$perfil['nome']?>"
-                autofocus><br>
+                value="<?=$usuario['nome']?>"><br>
             <button class="btn" type="submit">Salvar</button>
         </form>
     </main>

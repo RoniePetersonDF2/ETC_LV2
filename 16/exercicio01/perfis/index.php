@@ -37,7 +37,7 @@
     <main>
         <h1>Perfil</h1>
         <section class="section__btn">
-            <a class="btn" href="add.php">Novo</a>
+            <a class="btn" href="create.php">Novo</a>
         </section>
 
         <hr>
@@ -63,7 +63,7 @@
                             <td><?php echo $perfil['id'];?></td>
                             <td><?= $perfil['nome'];?></td>
                             <td class="td__operacao">
-                                <a class="btnalterar" href="show.php?id=<?=$perfil['id'];?>">Alterar</a>
+                                <a class="btnalterar" href="edit.php?id=<?=$perfil['id'];?>">Alterar</a>
                                 <a class="btnexcluir" href="delete.php?id=<?=$perfil['id'];?>" onclick="return confirm('Deseja confirmar a operação?');">Excluir</a>
                             </td>
                         </tr>

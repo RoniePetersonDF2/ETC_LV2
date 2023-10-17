@@ -21,7 +21,7 @@
     <main>
 
         <h1>Novo Perfil</h1>
-        <form action="new.php" method="post">
+        <form action="save.php" method="post">
             <label>Nome</label><br>
             <input type="text" name="nome" placeholder="Informe seu nome." size="80" required autofocus><br>
 
